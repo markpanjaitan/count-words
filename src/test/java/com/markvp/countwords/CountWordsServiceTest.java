@@ -30,21 +30,20 @@ public class CountWordsServiceTest {
 
     @Test
     public void createMockExcelThenVerifyResult() throws IOException {
-        // Create a mock Excel file for testing
+        // Create a mock Excel file
         FileInputStream fileInputStream = new FileInputStream("src/main/resources/test1.xlsx");
         MockMultipartFile mockMultipartFile = new MockMultipartFile("file", "test1.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileInputStream);
 
-        // Define the expected results for the service call
+        // Define the expected results
         List<String> mockLongWords = Arrays.asList("MarkValentinoWord1", "MarkValentinoWord2");
         CountWordsResult expectedCountWordsResult = new CountWordsResult(2, mockLongWords);
 
-        // Mock the behavior of the service
-        when(countWordsService.countWords(mockMultipartFile)).thenReturn(expectedCountWordsResult);
+        // Mock the service
+        when(countWordsService.countWordsExcel(mockMultipartFile)).thenReturn(expectedCountWordsResult);
 
-        // Call the service method
-        CountWordsResult actualCountWordsResult = countWordsService.countWords(mockMultipartFile);
+        CountWordsResult actualCountWordsResult = countWordsService.countWordsExcel(mockMultipartFile);
 
-        // Perform assertions to verify the result
+        // Assertions
         assertEquals(2, actualCountWordsResult.getNumberOfWordsStartsWithM());
         assertEquals(mockLongWords, actualCountWordsResult.getWordsLongerThanFive());
     }

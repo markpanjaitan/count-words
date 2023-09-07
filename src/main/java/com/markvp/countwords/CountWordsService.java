@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class CountWordsService {
 
-	public CountWordsResult countWords(MultipartFile file) throws IOException {
+	public CountWordsResult countWordsExcel(MultipartFile file) throws IOException {
 		
         // Read the uploaded Excel file
         Workbook workbook = new XSSFWorkbook(file.getInputStream());

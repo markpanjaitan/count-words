@@ -49,7 +49,7 @@ public class CountWordsControllerTests {
 
         // Define the expected results for the service call
         List<String> mockLongWords = Arrays.asList("MarkValentinoWord1", "MarkValentinoWord2");
-        when(countWordsService.countWords(mockMultipartFile)).thenReturn(new CountWordsResult(2, mockLongWords));
+        when(countWordsService.countWordsExcel(mockMultipartFile)).thenReturn(new CountWordsResult(2, mockLongWords));
 
         // Perform the file upload and test the response
         mockMvc.perform(MockMvcRequestBuilders.multipart("/count-words/upload")
