@@ -42,7 +42,7 @@ public class CountWordsControllerTests {
     }
 
     @Test
-    public void testCountWords() throws Exception {
+    public void createMockExcelThenUpload() throws Exception {
         // Create a mock Excel file for testing
         FileInputStream fileInputStream = new FileInputStream("src/main/resources/test1.xlsx");
         MockMultipartFile mockMultipartFile = new MockMultipartFile("file", "test1.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileInputStream);
